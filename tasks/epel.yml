@@ -1,0 +1,16 @@
+---
+  - name: Install EPEL {{ ansible_distribution_major_version }} Repo
+    yum:
+      name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+      state: present
+    tags:
+      - epel
+      - repo
+
+  - name: Import EPEL {{ ansible_distribution_major_version }} GPG Key
+    rpm_key:
+      key: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+      state: present
+    tags:
+      - epel
+      - repo
