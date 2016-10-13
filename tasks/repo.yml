@@ -1,0 +1,50 @@
+---
+  - name: Install Repo Dependencies
+    yum: pkg={{ item }} state=installed update_cache=yes
+    with_items:
+      - pygpgme
+      - yum-utils
+      - wget
+    tags:
+      - tyk
+      - repo
+
+  - name: Install Tyk API Gateway repo
+    yum_repository:
+      file: tyk_tyk-gateway
+      name: tyk_tyk-gateway
+      description: Tyk API Gateway public repostiroy
+      baseurl: https://packagecloud.io/tyk/tyk-gateway/el/{{ ansible_distribution_major_version }}/$basearch
+      enabled: yes
+      repo_gpgcheck: yes
+      gpgcheck: no
+      gpgkey: {{ item }}
+      sslverify: yes
+      sslcacert: /etc/pki/tls/certs/ca-bundle.crt
+      metadata_expire: 300
+    with_items:
+      - http://keyserver.tyk.io/tyk.io.rpm.signing.key
+      - https://packagecloud.io/gpg.key
+    tags:
+      - tyk
+      - repo
+
+  - name: Install Tyk API Gateway Source repo
+    yum_repository:
+      file: tyk_tyk-gateway
+      name: tyk_tyk-gateway-source
+      description: Tyk API Gateway public source repository
+      baseurl: https://packagecloud.io/tyk/tyk-gateway/el/{{ ansible_distribution_major_version }}/SRPMS
+      enabled: yes
+      repo_gpgcheck: yes
+      gpgcheck: no
+      gpgkey: {{ item }}
+      sslverify: yes
+      sslcacert: /etc/pki/tls/certs/ca-bundle.crt
+      metadata_expire: 300
+    with_items:
+      - http://keyserver.tyk.io/tyk.io.rpm.signing.key
+      - https://packagecloud.io/gpg.key
+    tags:
+      - tyk
+      - repo
