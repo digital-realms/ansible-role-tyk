@@ -1,2 +1,6 @@
 ---
-install_epel: true
+#Main module switches listed here
+install_gateway: true
+
+#Switches pertaining to the Gateway module
+install_gateway_epel: true

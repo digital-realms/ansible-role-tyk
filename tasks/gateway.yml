@@ -1,0 +1,8 @@
+---
+  - include: repo.yml
+    when: ansible_os_family == "RedHat"
+
+  - include: epel.yml
+    when:
+      - ansible_os_family == "RedHat"
+      - install_gateway_epel
