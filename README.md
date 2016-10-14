@@ -1,8 +1,18 @@
-Role Name
+Ansible Role: Tyk API Gateway + Dashboard + Analytics Pump
 =========
+:warning: **This module is NOT complete and is currently still being built** :warning:
 
-A brief description of the role goes here.
+**Build Status:**
 
+| Branch | Status |
+| --- |:---:|
+| :vertical_traffic_light: master | [![Build Status: master](https://travis-ci.org/digital-realms/ansible-role-tyk.svg?branch=master)](https://travis-ci.org/digital-realms/ansible-role-tyk) |
+| :vertical_traffic_light: develop | [![Build Status: develop](https://travis-ci.org/digital-realms/ansible-role-tyk.svg?branch=develop)](https://travis-ci.org/digital-realms/ansible-role-tyk) |
+
+This Ansible role will install and configure the Tyk API Gateway, Dashboard & Analytics Pump on RedHat & CentOS machines. Debian & Ubuntu support is coming soon.
+
+
+*Anything below this line is a default README.md template, save your time... don't read any further*
 Requirements
 ------------
 
