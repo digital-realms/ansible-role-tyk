@@ -6,3 +6,8 @@
     when:
       - ansible_os_family == "RedHat"
       - install_gateway_epel
+
+  - include: redis.yml
+    when:
+      - ansible_os_family == "RedHat"
+      - install_gateway_redis
